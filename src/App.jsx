@@ -28,13 +28,15 @@ function App() {
 
   return (
     <div className="flex flex-col w-screen min-h-screen justify-center items-center">
-      {loading ? (
-        <h1>ローディング...</h1>
-      ) : (
-        pokemonData.map((pokemon, index) => {
-          return <Card key={index} pokemon={pokemon}></Card>;
-        })
-      )}
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 ">
+        {loading ? (
+          <h1>ローディング...</h1>
+        ) : (
+          pokemonData.map((pokemon, index) => {
+            return <Card key={index} pokemon={pokemon} />;
+          })
+        )}
+      </div>
     </div>
   );
 }
