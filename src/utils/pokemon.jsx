@@ -1,3 +1,5 @@
+// import axios from "axios";
+
 export const getAllPokemon = (url) => {
   return new Promise((resolve) => {
     fetch(url)

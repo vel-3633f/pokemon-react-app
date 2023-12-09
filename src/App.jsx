@@ -8,13 +8,14 @@ function App() {
   const [pokemonData, setPokemonData] = useState([]);
 
   useEffect(() => {
-    const fetchPokemonData = async () => {
-      let res = await getAllPokemon(initialURL);
-      loadPokemon(res.results);
-      setLoading(false);
-    };
     fetchPokemonData();
   }, []);
+
+  const fetchPokemonData = async () => {
+    let res = await getAllPokemon(initialURL);
+    loadPokemon(res.results);
+    setLoading(false);
+  };
 
   const loadPokemon = async (data) => {
     let _pokemonData = await Promise.all(
