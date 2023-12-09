@@ -11,7 +11,7 @@ const Card = ({ pokemon }) => {
   useEffect(() => {
     getJaPokemon(pokemonURL);
   }, []);
-  
+
   const getJaPokemon = async (url) => {
     try {
       const res = await axios.get(url);

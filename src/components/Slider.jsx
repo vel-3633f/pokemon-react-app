@@ -2,12 +2,11 @@
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-// import "./testimonials.css";
-// Import Swiper React components
+
 import { Swiper, SwiperSlide } from "swiper/react";
-// import required modules
 import { Navigation, Autoplay, Pagination, Mousewheel, Keyboard } from "swiper";
 
+import SliderCard from "../components/SliderCard";
 
 const Slider = () => {
   return (
@@ -34,13 +33,27 @@ const Slider = () => {
           modules={[Navigation, Autoplay, Pagination, Mousewheel, Keyboard]}
           className="mySwiper"
         >
-          <SwiperSlide ><div className="w-64 h-64 bg-red-500">aaaaaaa</div></SwiperSlide>
-          <SwiperSlide ><div className="w-64 h-64 bg-red-300">aaaaaaa</div></SwiperSlide>
-          <SwiperSlide ><div className="w-64 h-64 bg-red-400">aaaaaaa</div></SwiperSlide>
+          <SwiperSlide>
+            <SliderCard
+              url="https://zukan.pokemon.co.jp/zukan-api/up/images/index/d78376a9336877d1f850f333602e7940.png"
+              name="ゲッコウガ"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <SliderCard
+              url="https://zukan.pokemon.co.jp/zukan-api/up/images/index/97cf3f3e791c8c564e57a0dac30687d0.png"
+              name="リオル"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <SliderCard
+              url="https://zukan.pokemon.co.jp/zukan-api/up/images/index/c49f4aa1cdfa011472090a8a2eda5103.png"
+              name="モクロー"
+            />
+          </SwiperSlide>
         </Swiper>
       </div>
     </section>
   );
 };
-
 export default Slider;
