@@ -11,13 +11,12 @@ const Card = ({ pokemon }) => {
   useEffect(() => {
     getJaPokemon(pokemonURL);
   }, []);
-
+  
   const getJaPokemon = async (url) => {
     try {
       const res = await axios.get(url);
       const names = res.data.names;
       const name = names.find((v) => v.language.name == "ja");
-      console.log(name.name);
       setPokemonName(name.name);
     } catch (e) {
       console.log(e, "エラー！！");
