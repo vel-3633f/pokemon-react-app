@@ -87,13 +87,13 @@ const Detail = () => {
               alt={pokemonDetail.name}
               className="h-80 ml-24 mr-10"
             />
-            <div className="w-[400px] bg-white rounded border border-gray-400 border-2 shadow-2xl px-5 py-10">
+            <div className="w-[400px] bg-white rounded border-2 border-gray-400 shadow-2xl px-5 py-10">
               <p className="font-bold text-2xl mb-3">{`No. ${pokemonDetail.id}`}</p>
               <p className="font-bold text-3xl">{pokemonDetail.name}</p>
             </div>
           </div>
           <div className="flex flex-col md:flex-row items-center justify-center py-10">
-            <div className="w-[500px] h-[500px] bg-white rounded border border-gray-400 border-4 shadow-xl p-10 text-xl mr-10">
+            <div className="w-[500px] h-[500px] bg-white rounded border-gray-400 border-4 shadow-xl p-10 text-xl mr-10">
               <p className="mb-10">
                 <span className="font-bold">分類：</span>
                 {pokemonDetail.genus}

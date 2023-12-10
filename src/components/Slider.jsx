@@ -73,7 +73,7 @@ const pickUpData = [
 
 const Slider = () => {
   return (
-    <section className="w-5/6">
+    <section className="w-full md:max-w-screen-md lg:max-w-screen-lg">
       <div className="contaienr">
         <Swiper
           slidesPerView={1}
@@ -94,7 +94,7 @@ const Slider = () => {
             1025: { slidesPerView: 3 },
           }}
           modules={[Navigation, Autoplay, Pagination, Mousewheel, Keyboard]}
-          className="mySwiper py-10 overflow-hidden"
+          className="mySwiper py-10"
         >
           {pickUpData.map((pokemon) => (
             <SwiperSlide key={pokemon.id}>

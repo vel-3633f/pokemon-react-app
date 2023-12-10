@@ -10,13 +10,12 @@ const SliderCard = ({ pokemon }) => {
         <p className="text-sm font-bold mb-3">{pokemon.class}</p>
         <div className="flex">
         {pokemon.types.map((type, index) => {
-          console.log(type)
           return (
-            <div key={index} className="mr-3">
+            <div key={index}>
               <img
                 src={type.typeImg}
                 alt={type.name}
-                className="w-7 rounded mx-auto"
+                className="w-7 rounded"
               />
               <p className="text-[8px] font-bold text-center">
                 {type.name}

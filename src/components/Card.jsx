@@ -31,7 +31,7 @@ const Card = ({ pokemon }) => {
       className="transition ease-in-out [&_div]:hover:-translate-y-2 [&_div]:hover:scale-105"
       onClick={() => newPages(pokemonURL)}
     >
-      <div className="w-[80px] bg-base-100 shadow rounded border border-gray-300 sm:w-[150px] md:w-[180px] ">
+      <div className="w-[75px] bg-base-100 shadow rounded border border-gray-300 sm:w-[120px] md:w-[170px] ">
         <img src={pokemonImg} alt={pokemon.name} className="w-full" />
       </div>
       <h2 className="text-xs text-center">{pokemonName}</h2>
