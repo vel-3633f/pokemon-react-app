@@ -1,9 +1,9 @@
 
 
-const Card = ({ url,name }) => {
+const SliderCard = ({ url,name }) => {
 
   return (
-    <div className=" transition ease-in-out [&_div]:hover:-translate-y-2 [&_div]:hover:scale-105">
+    <div className="w-screen transition ease-in-out [&_div]:hover:-translate-y-2 [&_div]:hover:scale-105">
       <div className="transition w-96 bg-base-100 shadow rounded border border-gray-300 relative ">
         <img src={url} alt={name} className="w-96" />
       </div>
@@ -12,4 +12,4 @@ const Card = ({ url,name }) => {
   );
 };
 
-export default Card;
+export default SliderCard;

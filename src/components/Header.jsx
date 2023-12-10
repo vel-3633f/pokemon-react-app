@@ -1,5 +1,7 @@
 // import React from 'react'
 import logo from "../../public/img/logo.png"
+import title from "../../public/img/title.jpg"
+
 const Header = () => {
   return (
     <header>
@@ -11,9 +13,7 @@ const Header = () => {
               className="mr-3 h-20"
               alt="Flowbite Logo"
             />
-            <span className="self-center text-3xl font-semibold whitespace-nowrap ">
-              ポケモン図鑑
-            </span>
+            <img src={title} alt="title" className="h-16"/>
           </a>
         </div>
       </nav>

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import { getJaPokemon } from "../utils/pokemon";
 import axios from "axios";
 
 const Card = ({ pokemon }) => {
@@ -23,9 +22,16 @@ const Card = ({ pokemon }) => {
     }
   };
 
+  const newPages = (url) => {
+    console.log(url);
+  };
+
   return (
-    <div className=" transition ease-in-out [&_div]:hover:-translate-y-2 [&_div]:hover:scale-105">
-      <div className="transition w-64 bg-base-100 shadow rounded border border-gray-300 relative ">
+    <div
+      className="transition ease-in-out [&_div]:hover:-translate-y-2 [&_div]:hover:scale-105"
+      onClick={() => newPages(pokemonURL)}
+    >
+      <div className="w-64 bg-base-100 shadow rounded border border-gray-300 relative ">
         <img src={pokemonImg} alt={pokemon.name} className="w-64" />
       </div>
       <h2 className="text-xl">{pokemonName}</h2>

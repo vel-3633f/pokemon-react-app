@@ -10,28 +10,28 @@ import SliderCard from "../components/SliderCard";
 
 const Slider = () => {
   return (
-    <section className="w-full mx-auto">
+    <section className="w-4/5">
       <div className="contaienr">
         <Swiper
           slidesPerView={1}
-          spaceBetween={30}
+          spaceBetween={10}
           navigation={true}
-          mousewheel={true}
           keyboard={true}
           pagination={{
             clickable: true,
           }}
+          loop={true}
           autoplay={{
             delay: 2500,
             disableOnInteraction: false,
+            waitForTransition: false,
           }}
           breakpoints={{
             601: { slidesPerView: 2 },
             1025: { slidesPerView: 3 },
           }}
-          loop={true}
           modules={[Navigation, Autoplay, Pagination, Mousewheel, Keyboard]}
-          className="mySwiper"
+          className="mySwiper py-10"
         >
           <SwiperSlide>
             <SliderCard
