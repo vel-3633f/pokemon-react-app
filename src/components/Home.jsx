@@ -1,31 +1,36 @@
-import { useEffect, useState } from "react";
-import { getAllPokemon, getPokemon } from "../utils/pokemon";
-import Card from "../components/Card";
-import Slider from "../components/Slider";
+import Slider from "./Slider";
+// import Test from "./Test";
+import ImgList from "./ImgList";
+import InfiniteScroll from "react-infinite-scroller";
+import { useState } from "react";
+import axios from "axios";
+import logo from "../../public/img/logo.png"
 
 const Home = () => {
   const initialURL = "https://pokeapi.co/api/v2/pokemon";
-  const [loading, setLoading] = useState(true);
-  const [pokemonData, setPokemonData] = useState([]);
 
-  useEffect(() => {
-    fetchPokemonData();
-  }, []);
+  const [urls, setUrls] = useState([initialURL]);
 
-  const fetchPokemonData = async () => {
-    let res = await getAllPokemon(initialURL);
-    loadPokemon(res.results);
-    setLoading(false);
+  const loader = (
+    <div className="mx-auto w-24 animate-spin" key={0}>
+      <img src={logo} alt="logo" />
+    </div>
+  );
+
+  //項目を読み込むときのコールバック
+  const loadMore = (page) => {
+    console.log(page);
+    getNextUrl(urls[urls.length - 1]);
   };
 
-  const loadPokemon = async (data) => {
-    let _pokemonData = await Promise.all(
-      data.map((pokemon) => {
-        let pokemonRecord = getPokemon(pokemon.url);
-        return pokemonRecord;
-      })
-    );
-    setPokemonData(_pokemonData);
+  const getNextUrl = async (url) => {
+    try {
+      const res = await axios.get(url);
+      console.log(res.data.next);
+      setUrls([...urls, res.data.next]);
+    } catch (e) {
+      console.log(e, "エラー！！");
+    }
   };
 
   return (
@@ -34,15 +39,11 @@ const Home = () => {
         ピックアップ
       </h1>
       <Slider />
-      <div className="grid grid-cols-4 lg:grid-cols-4 gap-5 mt-10">
-        {loading ? (
-          <h1>ローディング...</h1>
-        ) : (
-          pokemonData.map((pokemon, index) => {
-            return <Card key={index} pokemon={pokemon} />;
-          })
-        )}
-      </div>
+      <InfiniteScroll loadMore={loadMore} hasMore={true} loader={loader}>
+        {urls.map((url, index) => (
+          <ImgList url={url} key={index} />
+        ))}
+      </InfiniteScroll>
     </>
   );
 };

@@ -12,7 +12,7 @@ const statusObj = {
 };
 
 const Detail = () => {
-  let pokemonURL = "https://pokeapi.co/api/v2/pokemon/1/";
+  let pokemonURL = "https://pokeapi.co/api/v2/pokemon/3/";
   const [pokemonDetail, setPokemonDetail] = useState({
     name: "なし",
     img: logo,
@@ -68,7 +68,7 @@ const Detail = () => {
         evolutionUrl: resJa.data["evolution_chain"].url,
         flavorText: flavorText,
       };
-      console.log(detailObj);
+      // console.log(detailObj);
       setPokemonDetail(detailObj);
     } catch (e) {
       console.log(e, "エラー！！");
@@ -88,7 +88,7 @@ const Detail = () => {
               className="h-80 ml-24 mr-10"
             />
             <div className="w-[400px] bg-white rounded border border-gray-400 border-2 shadow-2xl px-5 py-10">
-              <p className="font-bold text-2xl mb-3">{`No${pokemonDetail.id}`}</p>
+              <p className="font-bold text-2xl mb-3">{`No. ${pokemonDetail.id}`}</p>
               <p className="font-bold text-3xl">{pokemonDetail.name}</p>
             </div>
           </div>
@@ -101,7 +101,7 @@ const Detail = () => {
               <p className="mb-10">
                 <span className="font-bold">タイプ：</span>
                 {pokemonDetail.types.map((type, index) => (
-                  <span key={index}>{type}</span>
+                  <span key={index}>{` ${type}`}</span>
                 ))}
               </p>
               <p className="mb-10">
