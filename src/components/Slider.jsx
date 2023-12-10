@@ -9,6 +9,8 @@ import SliderCard from "../components/SliderCard";
 import fighter from "../../public/img/18type_icon/fighter.png";
 import water from "../../public/img/18type_icon/water.png";
 import evil from "../../public/img/18type_icon/evil.png";
+import ground from "../../public/img/18type_icon/ground.png";
+import fire from "../../public/img/18type_icon/fire.png";
 
 const pickUpData = [
   {
@@ -48,6 +50,22 @@ const pickUpData = [
       {
         name: "みず",
         typeImg: water,
+      },
+    ],
+  },
+  {
+    id: 322,
+    url: "https://zukan.pokemon.co.jp/zukan-api/up/images/index/d56b26cb6f7f5bc92447c5eccf3fdb2d.png",
+    name: "ドンメル",
+    class: "どんかんポケモン",
+    types: [
+      {
+        name: "ほのお",
+        typeImg: fire,
+      },
+      {
+        name: "じめん",
+        typeImg: ground,
       },
     ],
   },
