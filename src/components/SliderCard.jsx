@@ -1,6 +1,6 @@
 const SliderCard = ({ pokemon }) => {
   return (
-    <div className="w-full flex justify-center">
+    <div className="flex justify-center">
       <div className="transition w-[150px]">
         <img src={pokemon.url} alt={pokemon.name} />
       </div>

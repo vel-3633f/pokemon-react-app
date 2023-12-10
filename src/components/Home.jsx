@@ -34,7 +34,9 @@ const Home = () => {
 
   return (
     <>
-      <h1 className="self-center text-3xl font-semibold whitespace-nowrap">PICK UP</h1>
+      <h1 className="self-center text-3xl font-semibold whitespace-nowrap">
+        PICK UP
+      </h1>
       <Slider />
       <InfiniteScroll loadMore={loadMore} hasMore={true} loader={loader}>
         {urls.map((url, index) => (
