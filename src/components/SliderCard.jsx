@@ -1,13 +1,31 @@
-
-
-const SliderCard = ({ url,name }) => {
-
+const SliderCard = ({ pokemon }) => {
   return (
-    <div className="w-screen transition ease-in-out [&_div]:hover:-translate-y-2 [&_div]:hover:scale-105">
-      <div className="transition w-96 bg-base-100 shadow rounded border border-gray-300 relative ">
-        <img src={url} alt={name} className="w-96" />
+    <div className="w-full flex justify-center">
+      <div className="transition w-[150px]">
+        <img src={pokemon.url} alt={pokemon.name} />
       </div>
-      <h2 className="text-xl text-canter">{name}</h2>
+      <div>
+        <p className="text-sm font-bold">{`No. ${pokemon.id}`}</p>
+        <p className="text-sm font-bold mb-3">{pokemon.name}</p>
+        <p className="text-sm font-bold mb-3">{pokemon.class}</p>
+        <div className="flex">
+        {pokemon.types.map((type, index) => {
+          console.log(type)
+          return (
+            <div key={index} className="mr-3">
+              <img
+                src={type.typeImg}
+                alt={type.name}
+                className="w-7 rounded mx-auto"
+              />
+              <p className="text-[8px] font-bold text-center">
+                {type.name}
+              </p>
+            </div>
+          );
+        })}
+        </div>
+      </div>
     </div>
   );
 };

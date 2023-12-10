@@ -35,9 +35,10 @@ const Home = () => {
 
   return (
     <>
-      <h1 className="self-center text-3xl font-semibold whitespace-nowrap my-10">
-        ピックアップ
+      <h1 className="self-center text-3xl font-semibold whitespace-nowrap my-3">
+        
       </h1>
+      <img src="../../public/img/pickUp.png" className="h-16"/>
       <Slider />
       <InfiniteScroll loadMore={loadMore} hasMore={true} loader={loader}>
         {urls.map((url, index) => (

@@ -12,7 +12,7 @@ const statusObj = {
 };
 
 const Detail = () => {
-  let pokemonURL = "https://pokeapi.co/api/v2/pokemon/3/";
+  let pokemonURL = "https://pokeapi.co/api/v2/pokemon/4/";
   const [pokemonDetail, setPokemonDetail] = useState({
     name: "なし",
     img: logo,

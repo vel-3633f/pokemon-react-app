@@ -31,10 +31,10 @@ const Card = ({ pokemon }) => {
       className="transition ease-in-out [&_div]:hover:-translate-y-2 [&_div]:hover:scale-105"
       onClick={() => newPages(pokemonURL)}
     >
-      <div className="w-64 bg-base-100 shadow rounded border border-gray-300 relative ">
-        <img src={pokemonImg} alt={pokemon.name} className="w-64" />
+      <div className="w-[80px] bg-base-100 shadow rounded border border-gray-300 relative md:w-64">
+        <img src={pokemonImg} alt={pokemon.name} className="w-full" />
       </div>
-      <h2 className="text-xl">{pokemonName}</h2>
+      <h2 className="text-xs text-center">{pokemonName}</h2>
     </div>
   );
 };

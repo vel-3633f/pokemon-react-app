@@ -25,7 +25,7 @@ const ImgList = ({ url }) => {
   };
 
   return (
-    <div className="grid grid-cols-4 lg:grid-cols-5 gap-5 mt-10">
+    <div className="grid grid-cols-4 lg:grid-cols-5 gap-2 gap-y-7 mt-7">
       {pokemonData.map((pokemon, index) => {
         return <Card key={index} pokemon={pokemon} />;
       })}
