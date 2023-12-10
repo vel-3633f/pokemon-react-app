@@ -1,10 +1,9 @@
+import { useState } from "react";
 import Slider from "./Slider";
-// import Test from "./Test";
 import ImgList from "./ImgList";
 import InfiniteScroll from "react-infinite-scroller";
-import { useState } from "react";
 import axios from "axios";
-import logo from "../../public/img/logo.png"
+import logo from "../../public/img/logo.png";
 
 const Home = () => {
   const initialURL = "https://pokeapi.co/api/v2/pokemon";
@@ -35,10 +34,7 @@ const Home = () => {
 
   return (
     <>
-      <h1 className="self-center text-3xl font-semibold whitespace-nowrap my-3">
-        
-      </h1>
-      <img src="../../public/img/pickUp.png" className="h-16"/>
+      <h1 className="self-center text-3xl font-semibold whitespace-nowrap">PICK UP</h1>
       <Slider />
       <InfiniteScroll loadMore={loadMore} hasMore={true} loader={loader}>
         {urls.map((url, index) => (

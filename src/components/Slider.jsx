@@ -6,6 +6,9 @@ import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Pagination, Mousewheel, Keyboard } from "swiper";
 import SliderCard from "../components/SliderCard";
+import fighter from "../../public/img/18type_icon/fighter.png";
+import water from "../../public/img/18type_icon/water.png";
+import evil from "../../public/img/18type_icon/evil.png";
 
 const pickUpData = [
   {
@@ -16,7 +19,7 @@ const pickUpData = [
     types: [
       {
         name: "かくとう",
-        typeImg: "../../public/img/18type_icon/fighter.png",
+        typeImg: fighter,
       },
     ],
   },
@@ -28,11 +31,11 @@ const pickUpData = [
     types: [
       {
         name: "みず",
-        typeImg: "../../public/img/18type_icon/water.png",
+        typeImg: water,
       },
       {
         name: "あく",
-        typeImg: "../../public/img/18type_icon/evil.png",
+        typeImg: evil,
       },
     ],
   },
@@ -44,7 +47,7 @@ const pickUpData = [
     types: [
       {
         name: "みず",
-        typeImg: "../../public/img/18type_icon/water.png",
+        typeImg: water,
       },
     ],
   },
