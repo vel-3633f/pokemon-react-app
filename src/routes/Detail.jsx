@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import logo from "../../public/img/logoImg.png";
 import Header from "../components/Header";
-import left from "../../public/img/left.png"
-import right from "../../public/img/right.png"
-import { useNavigate, useParams } from "react-router-dom";
+import left from "../../public/img/left.png";
+import right from "../../public/img/right.png";
 import Type from "../components/Type";
+import Evolution from "../components/Evolution";
 
 const statusObj = {
   hp: "HP",
@@ -163,6 +164,7 @@ const Detail = () => {
             })}
           </div>
         </div>
+        <Evolution url={pokemonDetail.evolutionUrl} params={params} />
       </section>
     </>
   );

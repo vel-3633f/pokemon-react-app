@@ -18,15 +18,15 @@ const Home = () => {
   );
 
   //項目を読み込むときのコールバック
-  const loadMore = (page) => {
-    console.log(page);
+  const loadMore = () => {
+    // console.log(page);
     getNextUrl(urls[urls.length - 1]);
   };
 
   const getNextUrl = async (url) => {
     try {
       const res = await axios.get(url);
-      console.log(res.data.next);
+      // console.log(res.data.next);
       setUrls([...urls, res.data.next]);
     } catch (e) {
       console.log(e, "エラー！！");

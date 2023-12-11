@@ -4,7 +4,6 @@ import Card from "./Card";
 
 const ImgList = ({ url }) => {
   const [pokemonData, setPokemonData] = useState([]);
-
   useEffect(() => {
     fetchPokemonData();
   }, []);
