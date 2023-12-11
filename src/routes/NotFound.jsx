@@ -5,7 +5,7 @@ const NotFound = () => {
   return (
     <>
       <Header />
-      <h1 className="text-3xl mb-10">ページが見つかりません</h1>
+      <h1 className="text-3xl my-10">ページが見つかりません</h1>
       <NavLink to="/" className="text-blue-600 text-3xl">ホームに戻る</NavLink>
     </>
   )
