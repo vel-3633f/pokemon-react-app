@@ -123,7 +123,7 @@ const Detail = () => {
           </div>
         </div>
         <div className="flex flex-col items-center justify-center py-10 sm:flex-row">
-          <div className="w-11/12 bg-white rounded p-8 border-gray-300 border-4 text-xl mb-5 sm:w-2/5 sm:text-base sm:mb-0 sm:mr-5 sm:h-[320px] lg:text-2xl lg:h-[400px]">
+          <div className="w-11/12 bg-white rounded p-8 border-gray-300 border-4 text-xl mb-5 sm:w-2/5 sm:text-base sm:mb-0 sm:mr-5 sm:h-[350px] lg:text-2xl lg:h-[400px]">
             <p className="mb-2">
               <span className="font-bold">分類：</span>
               {pokemonDetail.genus}
@@ -150,7 +150,7 @@ const Detail = () => {
               <span>{pokemonDetail.flavorText}</span>
             </p>
           </div>
-          <div className="w-11/12 bg-white rounded p-8 border-gray-300 border-4 text-xl sm:w-2/5 sm:text-base sm:h-[320px] lg:h-[400px] lg:text-2xl">
+          <div className="w-11/12 bg-white rounded p-8 border-gray-300 border-4 text-xl sm:w-2/5 sm:text-base sm:h-[350px] lg:h-[400px] lg:text-2xl">
             <h2 className="font-bold text-center mb-16 sm:mb-5">種族値</h2>
             {pokemonDetail.status.map((obj, index) => {
               return (

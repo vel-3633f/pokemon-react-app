@@ -47,15 +47,15 @@ const EvolCard = ({ pokemon }) => {
 
   return (
     <div
-      className="transition ease-in-out cursor-pointer flex mb-10"
+      className="transition ease-in-out cursor-pointer flex mb-10 "
       onClick={() => navigate(`/detail/${pokemon.id}`)}
     >
-      <div className="w-[150px] bg-base-100 shadow rounded border border-gray-300 sm:w-[120px] md:w-[170px] ">
-        <img src={pokemonData.img} alt={pokemonData.name} className="w-full" />
+      <div className="">
+        <img src={pokemonData.img} alt={pokemonData.name} className="w-[150px] bg-base-100 shadow rounded border mr-3 border-gray-300 sm:w-[100px] md:w-[170px] "/>
       </div>
       <div className="flex flex-col justify-center mx-auto">
-        <p>{`No. ${pokemon.id}`}</p>
-        <h2 className="text-lg font-bold mb-5">{pokemonData.name}</h2>
+        <p className="sm:text-xs lg:text-xl">{`No. ${pokemon.id}`}</p>
+        <h2 className="text-lg font-bold mb-5 sm:text-xs lg:text-xl">{pokemonData.name}</h2>
         <div className="flex">
           {pokemonData.types.map((type, index) => (
             <Type key={index} type={type} />
@@ -67,3 +67,5 @@ const EvolCard = ({ pokemon }) => {
 };
 
 export default EvolCard;
+
+// w-[150px] bg-base-100 shadow rounded border mr-3 border-gray-300 sm:w-[100px] md:w-[170px] 
