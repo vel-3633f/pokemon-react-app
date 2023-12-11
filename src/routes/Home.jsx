@@ -4,7 +4,7 @@ import Slider from "../components/Slider";
 import ImgList from "../components/ImgList";
 import InfiniteScroll from "react-infinite-scroller";
 import axios from "axios";
-import logo from "../../public/img/logo.png";
+import logo from "../../public/img/logoImg.png";
 
 const Home = () => {
   const initialURL = "https://pokeapi.co/api/v2/pokemon";

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import logo from "../../public/img/logo.png";
+import logo from "../../public/img/logoImg.png";
 import { useNavigate } from "react-router-dom";
 
 const Card = ({ pokemon }) => {

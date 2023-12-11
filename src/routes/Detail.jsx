@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import logo from "../../public/img/logo.png";
+import logo from "../../public/img/logoImg.png";
 import Header from "../components/Header";
 
 import { useParams } from "react-router-dom";
@@ -90,50 +90,50 @@ const Detail = () => {
           <h1>ローディング...</h1>
         ) : (
           <div>
-            <div className="w-screen h-80 bg-gray-100 flex items-center justify-center">
+            <div className="w-screen bg-gray-100 flex flex-col items-center justify-center">
               <img
                 src={pokemonDetail.img}
                 alt={pokemonDetail.name}
-                className="h-80 ml-24 mr-10"
+                className="h-64 my-5"
               />
-              <div className="w-[400px] bg-white rounded border-2 border-gray-400 shadow-2xl px-5 py-10">
-                <p className="font-bold text-2xl mb-3">{`No. ${pokemonDetail.id}`}</p>
-                <p className="font-bold text-3xl">{pokemonDetail.name}</p>
+              <div className="w-11/12 bg-white rounded border-4 border-gray-400 shadow-2xl px-5 py-5 mb-5">
+                <p className="font-bold text-lg mb-1 text-center">{`No. ${pokemonDetail.id}`}</p>
+                <p className="font-bold text-2xl text-center">{pokemonDetail.name}</p>
               </div>
             </div>
-            <div className="flex flex-col md:flex-row items-center justify-center py-10">
-              <div className="w-[500px] h-[500px] bg-white rounded border-gray-400 border-4 shadow-xl p-10 text-xl mr-10">
-                <p className="mb-10">
+            <div className="flex flex-col items-center justify-center py-10">
+              <div className="w-11/12 bg-white rounded p-8 border-gray-300 border-4 text-xl mb-5">
+                <p className="mb-2">
                   <span className="font-bold">分類：</span>
                   {pokemonDetail.genus}
                 </p>
-                <p className="mb-10">
+                <p className="mb-2">
                   <span className="font-bold">タイプ：</span>
                   {pokemonDetail.types.map((type, index) => (
                     <span key={index}>{` ${type}`}</span>
                   ))}
                 </p>
-                <p className="mb-10">
+                <p className="mb-2">
                   <span className="font-bold">高さ：</span>
                   {pokemonDetail.height}
                   <span>m</span>
                 </p>
-                <p className="mb-10">
+                <p className="mb-2">
                   <span className="font-bold">重さ：</span>
                   {pokemonDetail.weight / 10}
                   <span>kg</span>
                 </p>
-                <p className="mb-10">
-                  <span className="font-bold inline-block mb-5">説明</span>
+                <p className="mb-2">
+                  <span className="font-bold inline-block mb-2">説明</span>
                   <br />
                   <span>{pokemonDetail.flavorText}</span>
                 </p>
               </div>
-              <div className="w-[500px] h-[500px] bg-white rounded border-gray-400 border-4 shadow-2xl p-10">
-                <h2 className="text-2xl font-bold text-center mb-16">種族値</h2>
+              <div className="w-11/12 bg-white rounded p-8 border-gray-300 border-4 text-xl">
+                <h2 className="font-bold text-center mb-16">種族値</h2>
                 {pokemonDetail.status.map((obj, index) => {
                   return (
-                    <p key={index} className="text-center mr-10 mb-5 text-2xl">
+                    <p key={index} className="text-center mr-10 mb-5">
                       <span className="font-bold w-20 inline-block mr-10">
                         {statusObj[obj.stat.name]}
                       </span>
