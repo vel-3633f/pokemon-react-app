@@ -113,12 +113,12 @@ const Detail = () => {
               </div>
               <p className="mb-2">
                 <span className="font-bold">高さ：</span>
-                {pokemonDetail.height}
+                {(pokemonDetail.height / 10).toFixed(1)}
                 <span>m</span>
               </p>
               <p className="mb-2">
                 <span className="font-bold">重さ：</span>
-                {pokemonDetail.weight / 10}
+                {(pokemonDetail.weight / 10).toFixed(1)}
                 <span>kg</span>
               </p>
               <p className="mb-2">
@@ -146,9 +146,5 @@ const Detail = () => {
     </>
   );
 };
-
-// sm	640px	@media (min-width: 640px) { ... }
-// md	768px	@media (min-width: 768px) { ... }
-// lg	1024px	@media (min-width: 1024px) { ... }
 
 export default Detail;
