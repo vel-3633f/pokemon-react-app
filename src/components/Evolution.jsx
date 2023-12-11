@@ -59,7 +59,7 @@ const Evolution = ({ url}) => {
   };
 
   return (
-    <div className="w-11/12 border-4 border-gray-400 rounded-lg mx-auto p-5">
+    <div className="w-11/12 border-4 border-gray-400 rounded-lg mx-auto p-5 mb-10">
       <p className="text-center font-bold text-3xl mb-10">進化</p>
       <div className="flex flex-col justify-center items-center sm:flex-row sm:justify-evenly">
         {evolData.map((pokemon, index) => {
