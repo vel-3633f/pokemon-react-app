@@ -1,18 +1,16 @@
-import Header from "./components/Header";
-import Detail from "./components/Detail";
-import Home from "./components/Home";
+import Detail from "./routes/Detail";
+import Home from "./routes/Home";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 
 function App() {
   return (
     <>
-      <div className="flex flex-col w-screen min-h-screen justify-center items-center">
-        <Header />
+      <div className="flex flex-col w-screen min-h-screen justify-start items-center">
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/aaaa" element={<Detail />} />
+            <Route path="/detail/:pokemonId" element={<Detail />} />
           </Routes>
         </BrowserRouter>
       </div>

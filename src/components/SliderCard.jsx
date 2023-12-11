@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
+
 const SliderCard = ({ pokemon }) => {
+  const navigate = useNavigate()
   return (
-    <div className="flex justify-center">
-      <div className="transition w-[150px]">
+    <div className="flex justify-center cursor-pointer" onClick={() => navigate(`/detail/${pokemon.id}`)}>
+      <div className="w-[150px]">
         <img src={pokemon.url} alt={pokemon.name} />
       </div>
       <div>

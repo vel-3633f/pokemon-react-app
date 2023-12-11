@@ -1,6 +1,7 @@
 import { useState } from "react";
-import Slider from "./Slider";
-import ImgList from "./ImgList";
+import Header from "../components/Header";
+import Slider from "../components/Slider";
+import ImgList from "../components/ImgList";
 import InfiniteScroll from "react-infinite-scroller";
 import axios from "axios";
 import logo from "../../public/img/logo.png";
@@ -34,6 +35,7 @@ const Home = () => {
 
   return (
     <>
+      <Header />
       <h1 className="self-center text-3xl font-semibold whitespace-nowrap">
         PICK UP
       </h1>
