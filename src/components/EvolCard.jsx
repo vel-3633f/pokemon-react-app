@@ -14,6 +14,7 @@ const EvolCard = ({ pokemon }) => {
   });
 
   const navigate = useNavigate();
+
   useEffect(() => {
     const getJaPokemon = async (url) => {
       try {
@@ -22,14 +23,18 @@ const EvolCard = ({ pokemon }) => {
         const name = names.find((v) => v.language.name === "ja");
         const typeAry = [];
 
-        for (const type of pokemon.types) {
-          const typeUrl = type.type.url;
-          const resType = await axios.get(typeUrl);
-          const typeJa = resType.data.names.find(
-            (v) => v.language.name == "ja"
-          ).name;
-          typeAry.push(typeJa);
-        }
+        // 非同期処理が完了するまで待機
+        await Promise.all(
+          pokemon.types.map(async (type) => {
+            const typeUrl = type.type.url;
+            const resType = await axios.get(typeUrl);
+            const typeJa = resType.data.names.find(
+              (v) => v.language.name === "ja"
+            ).name;
+            typeAry.push(typeJa);
+          })
+        );
+
         const newPokemonObj = {
           id: pokemon.id,
           name: name.name,
@@ -42,8 +47,10 @@ const EvolCard = ({ pokemon }) => {
         console.log(e, "エラー！！");
       }
     };
+
+    // useEffect 内でstateの更新を行う場合、依存リストにstateを追加
     getJaPokemon(pokemonData.url);
-  }, [pokemon.id, pokemon.species.url]);
+  }, [pokemon.id, pokemon.species.url, pokemonData.url]);
 
   return (
     <div
@@ -51,11 +58,17 @@ const EvolCard = ({ pokemon }) => {
       onClick={() => navigate(`/detail/${pokemon.id}`)}
     >
       <div className="">
-        <img src={pokemonData.img} alt={pokemonData.name} className="w-[150px] bg-base-100 shadow rounded border mr-3 border-gray-300 sm:w-[100px] md:w-[170px] "/>
+        <img
+          src={pokemonData.img}
+          alt={pokemonData.name}
+          className="w-[150px] bg-base-100 shadow rounded border mr-3 border-gray-300 sm:w-[100px] md:w-[170px] "
+        />
       </div>
       <div className="flex flex-col justify-center mx-auto">
         <p className="sm:text-xs lg:text-xl">{`No. ${pokemon.id}`}</p>
-        <h2 className="text-lg font-bold mb-5 sm:text-xs lg:text-xl">{pokemonData.name}</h2>
+        <h2 className="text-lg font-bold mb-5 sm:text-xs lg:text-xl">
+          {pokemonData.name}
+        </h2>
         <div className="flex">
           {pokemonData.types.map((type, index) => (
             <Type key={index} type={type} />
@@ -67,5 +80,3 @@ const EvolCard = ({ pokemon }) => {
 };
 
 export default EvolCard;
-
-// w-[150px] bg-base-100 shadow rounded border mr-3 border-gray-300 sm:w-[100px] md:w-[170px] 
