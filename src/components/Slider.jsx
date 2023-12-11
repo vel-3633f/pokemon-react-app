@@ -73,7 +73,7 @@ const pickUpData = [
 
 const Slider = () => {
   return (
-    <section className="w-full md:max-w-screen-md lg:max-w-screen-lg">
+    <section className="w-screen md:max-w-screen-md lg:max-w-screen-lg">
       <div className="contaienr">
         <Swiper
           slidesPerView={1}

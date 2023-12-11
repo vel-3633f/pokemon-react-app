@@ -36,10 +36,12 @@ const Home = () => {
   return (
     <>
       <Header />
-      <h1 className="self-center text-3xl font-semibold whitespace-nowrap">
-        PICK UP
-      </h1>
-      <Slider />
+      <div className="w-screen bg-slate-100 py-5 flex flex-col items-center">
+        <h1 className="text-center text-3xl text-slate-600 font-semibold whitespace-nowrap">
+          PICK UP
+        </h1>
+        <Slider />
+      </div>
       <InfiniteScroll loadMore={loadMore} hasMore={true} loader={loader}>
         {urls.map((url, index) => (
           <ImgList url={url} key={index} />

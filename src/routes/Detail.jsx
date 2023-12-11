@@ -90,19 +90,20 @@ const Detail = () => {
           <h1>ローディング...</h1>
         ) : (
           <div>
-            <div className="w-screen bg-gray-100 flex flex-col items-center justify-center">
+            <div className="w-screen bg-gray-100 flex flex-col items-center justify-center sm:flex-row" >
               <img
                 src={pokemonDetail.img}
                 alt={pokemonDetail.name}
-                className="h-64 my-5"
+                className="h-64 my-5 sm:h-56 sm:mr-7 lg:h-64"
               />
-              <div className="w-11/12 bg-white rounded border-4 border-gray-400 shadow-2xl px-5 py-5 mb-5">
-                <p className="font-bold text-lg mb-1 text-center">{`No. ${pokemonDetail.id}`}</p>
-                <p className="font-bold text-2xl text-center">{pokemonDetail.name}</p>
+              <div className="w-11/12 bg-white rounded border-4 border-gray-400 shadow-2xl px-5 py-5 mb-5 sm:w-[300px] sm:border-none sm:py-10 lg:w-[430px] lg:px-16">
+                <p className="font-bold text-lg sm:text-base lg:text-2xl mb-1 text-center sm:text-left">{`No. ${pokemonDetail.id}`}</p>
+                <p className="font-bold text-2xl sm:text-lg lg:text-3xl text-center sm:text-left">{pokemonDetail.name}</p>
+                <p className="font-bold text-base sm:text-base lg:text-2xl text-gray-500 text-center sm:text-left">{pokemonDetail.genus}</p>
               </div>
             </div>
-            <div className="flex flex-col items-center justify-center py-10">
-              <div className="w-11/12 bg-white rounded p-8 border-gray-300 border-4 text-xl mb-5">
+            <div className="flex flex-col items-center justify-center py-10 sm:flex-row">
+              <div className="w-11/12 bg-white rounded p-8 border-gray-300 border-4 text-xl mb-5 sm:w-2/5 sm:text-base sm:mb-0 sm:mr-5 sm:h-[320px] lg:text-2xl lg:h-[400px]">
                 <p className="mb-2">
                   <span className="font-bold">分類：</span>
                   {pokemonDetail.genus}
@@ -129,11 +130,11 @@ const Detail = () => {
                   <span>{pokemonDetail.flavorText}</span>
                 </p>
               </div>
-              <div className="w-11/12 bg-white rounded p-8 border-gray-300 border-4 text-xl">
-                <h2 className="font-bold text-center mb-16">種族値</h2>
+              <div className="w-11/12 bg-white rounded p-8 border-gray-300 border-4 text-xl sm:w-2/5 sm:text-base sm:h-[320px] lg:h-[400px] lg:text-2xl">
+                <h2 className="font-bold text-center mb-16 sm:mb-5">種族値</h2>
                 {pokemonDetail.status.map((obj, index) => {
                   return (
-                    <p key={index} className="text-center mr-10 mb-5">
+                    <p key={index} className="text-center mr-10 mb-5 sm:mb-2">
                       <span className="font-bold w-20 inline-block mr-10">
                         {statusObj[obj.stat.name]}
                       </span>

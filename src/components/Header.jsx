@@ -10,10 +10,10 @@ const Header = () => {
       <nav className="bg-white w-screen border-gray-200 py-3 flex flex-wrap justify-center items-center">
         <div
           onClick={() => navigate("/")}
-          className="flex items-center cursor-pointer"
+          className="flex items-center cursor-pointer h-10 sm:h-16"
         >
-          <img src={logo} className="mr-3 h-10" alt="Flowbite Logo" />
-          <img src={title} alt="title" className="h-10" />
+          <img src={logo} className="mr-3 h-full" alt="Flowbite Logo" />
+          <img src={title} alt="title" className="h-full" />
         </div>
       </nav>
     </header>
