@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import logo from "../../public/img/logoImg.png";
 import Header from "../components/Header";
-
+import left from "../../public/img/left.png"
+import right from "../../public/img/right.png"
 import { useNavigate, useParams } from "react-router-dom";
 import Type from "../components/Type";
 
@@ -91,7 +92,7 @@ const Detail = () => {
               }}
               className="absolute top-32 left-4 w-8 cursor-pointer transition ease-in-out hover:-translate-y-2 hover:scale-105 lg:w-20 sm:w-12 lg:left-10 sm:top-24"
             >
-              <img src="/public/img/left.png" alt="button" />
+              <img src={left} alt="button" />
             </div>
           )}
           <div className="w-screen bg-gray-100 flex flex-col items-center justify-center sm:flex-row">
@@ -117,7 +118,7 @@ const Detail = () => {
             }}
             className="absolute top-32 right-4 w-8 cursor-pointer transition ease-in-out hover:-translate-y-2 hover:scale-105 lg:w-20 sm:w-12 lg:right-10 sm:top-24"
           >
-            <img src="/public/img/right.png" alt="button" />
+            <img src={right} alt="button" />
           </div>
         </div>
         <div className="flex flex-col items-center justify-center py-10 sm:flex-row">
