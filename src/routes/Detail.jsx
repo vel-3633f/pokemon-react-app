@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
-import logo from "../../public/img/logoImg.png";
 import Header from "../components/Header";
 import left from "../../public/img/left.png";
 import right from "../../public/img/right.png";
 import Type from "../components/Type";
 import Evolution from "../components/Evolution";
+import useGetDetail from "../hooks/useGetDetail";
 
 const statusObj = {
   hp: "HP",
@@ -20,65 +18,8 @@ const statusObj = {
 const Detail = () => {
   const params = useParams();
   const navigate = useNavigate();
-  let pokemonURL = `https://pokeapi.co/api/v2/pokemon/${params.pokemonId}/`;
-  const [pokemonDetail, setPokemonDetail] = useState({
-    id: 0,
-    name: "なし",
-    img: logo,
-    genus: "",
-    height: "",
-    weight: "",
-    types: ["なし"],
-    status: [],
-    evolutionUrl: "",
-    flavorText: "",
-  });
 
-  useEffect(() => {
-    getDetail(pokemonURL);
-  }, [params]);
-
-  const getDetail = async (url) => {
-    try {
-      const res = await axios.get(url);
-      const resJa = await axios.get(res.data.species.url);
-      const typeAry = [];
-
-      for (const type of res.data.types) {
-        const typeUrl = type.type.url;
-        const resType = await axios.get(typeUrl);
-        const typeJa = resType.data.names.find(
-          (v) => v.language.name == "ja"
-        ).name;
-        typeAry.push(typeJa);
-      }
-
-      //ポケモンの名前
-      const names = resJa.data.names;
-      const flavorTextEntries = resJa.data.flavor_text_entries;
-      let flavorText = flavorTextEntries.filter(function (v) {
-        return v.language.name == "ja";
-      });
-
-      flavorText = flavorText[0].flavor_text;
-      if (!flavorText) flavorText = "説明がありません";
-      const detailObj = {
-        id: res.data.id,
-        name: names.find((v) => v.language.name == "ja").name,
-        img: res.data.sprites.other["official-artwork"].front_default,
-        genus: resJa.data.genera.find((v) => v.language.name == "ja").genus,
-        height: res.data.height,
-        weight: res.data.weight,
-        types: typeAry,
-        status: res.data.stats,
-        evolutionUrl: resJa.data["evolution_chain"].url,
-        flavorText: flavorText,
-      };
-      setPokemonDetail(detailObj);
-    } catch (e) {
-      console.log(e, "エラー！！");
-    }
-  };
+  const pokemonDetail = useGetDetail(params);
 
   return (
     <>
