@@ -11,6 +11,7 @@ const Home = () => {
   const initialURL = "https://pokeapi.co/api/v2/pokemon";
 
   const [urls, setUrls] = useState([initialURL]);
+  const [hasMore, setHasMore] = useState(true);
 
   const loader = (
     <div className="mx-auto w-24 animate-spin" key={0}>
@@ -22,13 +23,18 @@ const Home = () => {
   const loadMore = () => {
     // console.log(page);
     getNextUrl(urls[urls.length - 1]);
+    
   };
 
   const getNextUrl = async (url) => {
     try {
       const res = await axios.get(url);
-      // console.log(res.data.next);
-      setUrls([...urls, res.data.next]);
+      if (res.data.next) {
+        setUrls([...urls, res.data.next]);
+      } else {
+        // 全てのデータを取得した場合
+        setHasMore(false);
+      }
     } catch (e) {
       console.log(e, "エラー！！");
     }
@@ -43,7 +49,7 @@ const Home = () => {
         </h1>
         <Slider />
       </div>
-      <InfiniteScroll loadMore={loadMore} hasMore={true} loader={loader}>
+      <InfiniteScroll loadMore={loadMore} hasMore={hasMore} loader={loader}>
         {urls.map((url, index) => (
           <ImgList url={url} key={index} />
         ))}

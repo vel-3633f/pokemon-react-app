@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import SkeletonCard from "./SkeletonCard";
+import logo from "../../public/img/logoImg.png";
 
 const Card = ({ pokemon }) => {
   const [loading, setLoading] = useState(false);
   const [pokemonData, setPokemonData] = useState({
     id: pokemon.id,
     name: "",
-    img: null,
+    img: logo,
     url: pokemon.species.url,
   });
 
@@ -19,11 +20,13 @@ const Card = ({ pokemon }) => {
         const res = await axios.get(url);
         const names = res.data.names;
         const name = names.find((v) => v.language.name === "ja");
-
+        let imgPokemon =
+          pokemon.sprites.other["official-artwork"].front_default;
+        if (!imgPokemon) imgPokemon = logo;
         const newPokemonObj = {
           id: pokemon.id,
           name: name.name,
-          img: pokemon.sprites.other["official-artwork"].front_default,
+          img: imgPokemon,
           url: pokemon.species.url,
         };
         setPokemonData(newPokemonObj);
