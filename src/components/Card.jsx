@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import SkeletonCard from "./SkeletonCard";
 import logo from "../../public/img/logoImg.png";
 
@@ -13,7 +12,6 @@ const Card = ({ pokemon }) => {
     url: pokemon.species.url,
   });
 
-  const navigate = useNavigate();
   useEffect(() => {
     const getJaPokemon = async (url) => {
       try {
@@ -36,14 +34,20 @@ const Card = ({ pokemon }) => {
       }
     };
     getJaPokemon(pokemonData.url);
-  }, []);
+  }, [pokemonData.url]); // useEffectの依存リストを修正
+
+  //新しいタブで開く
+  const openInNewTab = () => {
+    const url = `/detail/${pokemon.id}`;
+    window.open(url, "_blank");
+  };
 
   return (
     <div>
       {loading ? (
         <div
           className="transition ease-in-out [&_div]:hover:-translate-y-2 [&_div]:hover:scale-105 cursor-pointer"
-          onClick={() => navigate(`/detail/${pokemon.id}`)}
+          onClick={openInNewTab}
         >
           <div className="w-[75px] bg-base-100 shadow rounded border border-gray-300 sm:w-[120px] md:w-[170px] ">
             <img
