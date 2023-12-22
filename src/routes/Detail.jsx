@@ -22,7 +22,6 @@ const Detail = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const pokemonDetail = useGetDetail(params, setIsLoading);
-  console.log(isLoading)
 
   return (
     <>

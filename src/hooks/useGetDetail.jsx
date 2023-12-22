@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import logo from "../../public/img/logoImg.png";
 
-const useGetDetail = (params,setIsLoading) => {
+const useGetDetail = (params, setIsLoading) => {
   let pokemonURL = `https://pokeapi.co/api/v2/pokemon/${params.pokemonId}/`;
   const [pokemonDetail, setPokemonDetail] = useState({
     id: 0,
@@ -17,9 +17,8 @@ const useGetDetail = (params,setIsLoading) => {
     flavorText: "",
   });
 
-
   useEffect(() => {
-    setIsLoading(false)
+    setIsLoading(false);
     getDetail(pokemonURL);
   }, [params]);
 
@@ -59,13 +58,12 @@ const useGetDetail = (params,setIsLoading) => {
         evolutionUrl: resJa.data["evolution_chain"].url,
         flavorText: flavorText,
       };
-      setIsLoading(true)
+      setIsLoading(true);
       setPokemonDetail(detailObj);
     } catch (e) {
       console.log(e, "エラー！！");
     }
   };
-
 
   return pokemonDetail;
 };
