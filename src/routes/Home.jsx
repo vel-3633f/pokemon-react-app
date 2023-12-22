@@ -23,7 +23,6 @@ const Home = () => {
   const loadMore = () => {
     // console.log(page);
     getNextUrl(urls[urls.length - 1]);
-    
   };
 
   const getNextUrl = async (url) => {

@@ -54,14 +54,14 @@ const EvolCard = ({ pokemon }) => {
 
   return (
     <div
-      className="transition ease-in-out cursor-pointer flex mb-10 "
+      className="transition ease-in-out cursor-pointer flex mb-10"
       onClick={() => navigate(`/detail/${pokemon.id}`)}
     >
       <div className="">
         <img
           src={pokemonData.img}
           alt={pokemonData.name}
-          className="w-[150px] bg-base-100 shadow rounded border mr-3 border-gray-300 sm:w-[100px] md:w-[170px] "
+          className="w-[150px] bg-base-100 shadow rounded border mr-3 border-gray-300 sm:w-[100px] md:w-[170px] h-[150px] sm:h-[100px] md:h-[170px]"
         />
       </div>
       <div className="flex flex-col justify-center mx-auto">

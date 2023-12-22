@@ -1,6 +1,7 @@
 // import React from 'react'
 import { useNavigate } from "react-router-dom";
 import logo from "../../public/img/logoImg.png";
+import searchLogo from "../../public/img/searchLogo.svg";
 import title from "../../public/img/title.jpg";
 import { createPortal } from "react-dom";
 import { useState } from "react";
@@ -16,33 +17,34 @@ const Header = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <header>
-      <nav className="bg-white w-screen border-gray-200 py-3 flex flex-wrap justify-center items-center">
-        <div
-          onClick={() => navigate("/")}
-          className="flex items-center cursor-pointer h-10 sm:h-16"
-        >
-          <img src={logo} className="mr-3 h-full" alt="Flowbite Logo" />
-          <img src={title} alt="title" className="h-full" />
-        </div>
-        <div>
-          <button
-            type="button"
-            onClick={() => setModalOpen(true)}
-            disabled={modalOpen}
-            className="w-10 h-10  bg-blue-400 text-2xl text-white font-semibold rounded-full hover:bg-blue-500"
+    <>
+      <header>
+        <nav className="bg-white w-screen border-gray-200 px-4 py-3 flex flex-wrap justify-between items-center sm:mx-10">
+          <div
+            onClick={() => navigate("/")}
+            className="flex items-center cursor-pointer h-8 sm:h-16"
           >
-            +
-          </button>
-          {modalOpen && (
-            <ModalPortal>
-              <SearchMordal handleCloseClick={() => setModalOpen(false)} />
-            </ModalPortal>
-          )}
-          <div id="start"></div>
-        </div>
-      </nav>
-    </header>
+            <img src={logo} className="mr-3 h-full" alt="Flowbite Logo" />
+            <img src={title} alt="title" className="h-full" />
+          </div>
+          <div onClick={() => setModalOpen(true)} className="cursor-pointer">
+            <img src={searchLogo} alt="searchLogo" className="w-5 sm:w-10 sm:h-10" />
+            <p className="text-xs text-center">検索</p>
+          </div>
+        </nav>
+      </header>
+      <div id="start"></div>
+      {modalOpen && (
+        <ModalPortal>
+          <SearchMordal
+            handleCloseClick={() => {
+              setModalOpen(false);
+              console.log(modalOpen);
+            }}
+          />
+        </ModalPortal>
+      )}
+    </>
   );
 };
 

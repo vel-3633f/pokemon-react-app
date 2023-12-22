@@ -3,6 +3,28 @@ import ballLogo from "../../public/img/ballLogo.svg";
 import { useRef, useState } from "react";
 import { getPokeNum } from "../utils/getPokeNum";
 import { useNavigate } from "react-router-dom";
+import Type from "./Type";
+
+const types = [
+  "ノーマル",
+  "かくとう",
+  "ひこう",
+  "どく",
+  "じめん",
+  "いわ",
+  "むし",
+  "ゴースト",
+  "はがね",
+  "ほのお",
+  "みず",
+  "くさ",
+  "でんき",
+  "エスパー",
+  "こおり",
+  "ドラゴン",
+  "あく",
+  "フェアリー",
+];
 
 const SearchMordal = ({ handleCloseClick }) => {
   const inputRef = useRef();
@@ -39,7 +61,7 @@ const SearchMordal = ({ handleCloseClick }) => {
         <div className="w-full px-10 pt-10">
           <div className="flex items-center mb-5">
             <img src={ballLogo} alt="searchLogo" className="w-7 mr-3" />
-            <h2>フリーワード（英語名での検索のみ）</h2>
+            <h2>英語名で検索（例:pikachu）</h2>
           </div>
           <input
             type="text"
@@ -64,7 +86,12 @@ const SearchMordal = ({ handleCloseClick }) => {
             </button>
           )}
         </div>
-        <p className="text-red-600 text-default">{errorMsg}</p>
+        <p className="text-red-600 text-default h-10">{errorMsg}</p>
+        <div className="grid grid-cols-6 gap-[10px]">
+          {types.map((type, index) => (
+            <Type type={type} key={index} />
+          ))}
+        </div>
       </div>
     </div>
   );

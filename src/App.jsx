@@ -1,9 +1,8 @@
 import Detail from "./routes/Detail";
 import Home from "./routes/Home";
 import NotFound from "./routes/NotFound";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import SeachResult from "./components/SearchMordal";
+import SearchResult from "./routes/SearchResult";
 
 function App() {
   return (
@@ -13,7 +12,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/detail/:pokemonId" element={<Detail />} />
-            {/* <Route path="/seach/:name" element={<SeachResult />} /> */}
+            <Route path="/search/:type" element={<SearchResult />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
