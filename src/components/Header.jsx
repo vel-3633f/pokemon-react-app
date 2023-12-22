@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <>
       <header>
-        <nav className="bg-white w-screen border-gray-200 px-4 py-3 flex flex-wrap justify-between items-center sm:mx-10">
+        <nav className="bg-white w-screen border-gray-200 px-4 py-3 flex flex-wrap justify-between items-center">
           <div
             onClick={() => navigate("/")}
             className="flex items-center cursor-pointer h-8 sm:h-16"
@@ -27,7 +27,7 @@ const Header = () => {
             <img src={logo} className="mr-3 h-full" alt="Flowbite Logo" />
             <img src={title} alt="title" className="h-full" />
           </div>
-          <div onClick={() => setModalOpen(true)} className="cursor-pointer">
+          <div onClick={() => setModalOpen(true)} className="cursor-pointer sm:mr-5">
             <img src={searchLogo} alt="searchLogo" className="w-5 sm:w-10 sm:h-10" />
             <p className="text-xs text-center">検索</p>
           </div>

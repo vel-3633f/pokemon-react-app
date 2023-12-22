@@ -85,13 +85,13 @@ const Type = ({ type }) => {
   };
   return (
     <div
-      className="mr-3 flex flex-col items-center cursor-pointer"
+      className="flex flex-col items-center cursor-pointer"
       onClick={clickType}
     >
       <img
         src={`/img/18type_icon/${nowType.type}.png`}
         alt={type}
-        className="w-12 rounded"
+        className="w-10 rounded mx-1 sm:w-12"
       />
       <p className="text-xs text-center">{type}</p>
     </div>
