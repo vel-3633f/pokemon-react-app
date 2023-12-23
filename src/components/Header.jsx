@@ -24,8 +24,8 @@ const Header = () => {
             onClick={() => navigate("/")}
             className="flex items-center cursor-pointer h-8 sm:h-16"
           >
-            <img src={logo} className="mr-3 h-full" alt="Flowbite Logo" />
-            <img src={title} alt="title" className="h-full" />
+            <img src={logo} className="mr-3 h-full " alt="Flowbite Logo" />
+            <img src={title} alt="title" className="w-32 sm:w-52 " />
           </div>
           <div onClick={() => setModalOpen(true)} className="cursor-pointer sm:mr-5">
             <img src={searchLogo} alt="searchLogo" className="w-5 sm:w-10 sm:h-10" />
